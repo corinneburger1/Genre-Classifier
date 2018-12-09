@@ -9,12 +9,9 @@ app = Flask(__name__)
 app.config.from_object(__name__)
 app.config['SECRET_KEY'] = '7d441f27d441f27567d441f2b6176a'
 
-
-
 class ReusableForm(Form):
     name = TextField('Name:', validators=[validators.required()])
- 
- 
+
 @app.route("/", methods=['GET', 'POST'])
 def index():
     form = ReusableForm(request.form)
@@ -22,11 +19,11 @@ def index():
     print(form.errors)
     if request.method == 'POST':
         if form.validate():
-            # try:
-            query = request.form['name']
-            flash(classify.classify(query))
-            # except:
-            #     flash('Error: Invalid Song ID')
+            try:
+                query = request.form['name']
+                flash(classify.classify(query))
+            except:
+                flash('Error: No song found.')
         else:
             flash('Error: All the form fields are required.')
  
