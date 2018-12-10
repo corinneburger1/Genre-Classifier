@@ -15,7 +15,7 @@ class ReusableForm(Form):
 @app.route("/", methods=['GET', 'POST'])
 def index():
     form = ReusableForm(request.form)
- 
+
     print(form.errors)
     if request.method == 'POST':
         if form.validate():
@@ -26,8 +26,8 @@ def index():
                 flash('Error: No song found.')
         else:
             flash('Error: All the form fields are required.')
- 
+
     return render_template('index.html', form=form)
- 
-if __name__ == "__main__":
-    app.run()
+
+# if __name__ == "__main__":
+#     app.run()
