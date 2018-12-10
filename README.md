@@ -2,7 +2,7 @@
 A genre classifier that uses machine learning techniques and Spotify song data to label songs with genres.
 
 ## Machine Learning Model
-To classify songs, I use a random forest model that was trained on over a thousand songs.
+I use a random forest model that was trained on over a thousand songs.
 
 ## Data
 To collect training data, I used thousands of songs from various Spotify playlists. Using the Spotify API, I collected over thirty attribute values for each song. Genre classifications were determined based on playlists - for example, I used a large country playlist and classified all songs in it as country. The current model is stored in a RandomForestModel.joblib under app/static/.
