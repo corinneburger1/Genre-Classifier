@@ -4,6 +4,7 @@ import spotipy.oauth2 as oauth2
 
 def classifySong(trackID, sp):
     model = load("/home/corinneburger1/Genre-Classifier/app/static/RandomForestModel.joblib")
+    # model = load("/Users/corinneburger/Dropbox/Junior Year/ML/Genre-Classifier/app/static/RandomForestModel.joblib")
     song = getTrackFeatures(trackID, sp)
     ret = model.predict([song])[0]
     return ret
